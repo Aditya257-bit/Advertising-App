@@ -31,7 +31,9 @@ app.use(express.static("uploads"));
 //DB Connection
 mongoose.connect("mongodb://localhost:27017/node_crud", {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false
 }).then(() => {
     console.log("Connection Successfull");
 }).catch((err) => {
@@ -96,22 +98,18 @@ app.post('/login', async (req, res) => {
 
         const useremail = await Register.findOne({ email: loginemail });
 
-        if (useremail) {
-            const isMatch = await bcrypt.compare(loginpassword, useremail.password)
+        const isMatch = await bcrypt.compare(loginpassword, useremail.password)
 
-            if (isMatch) {
-                res.status(201).render("sell_product", {
-                    title: "Login",
-                    message: "Login Successfull"
-                });
-            }
-            else {
-                res.send("Invalid Credentials");
-            }
+        if (isMatch) {
+            res.status(201).render("index", {
+                title: "Login",
+                message: "Login Successfull"
+            });
         }
         else {
-            res.send("Need to register first")
+            res.send("Invalid Credentials");
         }
+
 
     } catch (error) {
         res.status(400).send(error);
