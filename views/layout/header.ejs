@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta2/css/bootstrap.min.css" integrity="sha512-aqT9YD5gLuLBr6ipQAS+72o5yHKzgZbGxEh6iY8lW/r6gG14e2kBTAJb8XrxzZrMOgSmDqtLaF76T0Z6YY2IHg==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+    <style>
+    * {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    }
+    .navsec {
+    width: 100%;
+    height: 20vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-image: linear-gradient(to top, #fff 80%, #c3f5ff 20%);
+    }
+
+    .logo {
+    width: 40%;
+    color: white;
+    background-image: linear-gradient(#8d98e3 40%, #854fee 60%);
+    padding-left: 100px;
+    box-sizing: border-box;
+    text-transform: uppercase;
+    animation: move 2s linear infinite;
+    animation-direction: alternate;
+    }
+    @keyframes move {
+    from {
+        padding-left: 40px;
+    }
+    to {
+        padding-right: 40px;
+    }
+    }
+
+    nav {
+    width: 60%;
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+    }
+
+    nav a {
+    text-decoration: none;
+    color: #000;
+    font-size: 17px;
+    font-weight: bolder;
+    text-transform: uppercase;
+    position: relative;
+    }
+
+    nav a:first-child {
+    color: #4458dc;
+    }
+
+    nav a::before {
+    content: "";
+    position: absolute;
+    top: 110%;
+    left: 0;
+    width: 0;
+    border-bottom: 2px solid #4458dc;
+    transition: all 0.4s linear;
+    }
+
+    nav a:hover::before {
+    width: 100%;
+    }
+
+    form .gender-details .gender-title {
+  font-size: 20px;
+  font-weight: 500;
+}
+form .category {
+  display: flex;
+  width: 80%;
+  margin: 14px 0;
+  justify-content: space-between;
+}
+form .category label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+form .category label .dot {
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  margin-right: 10px;
+  background: #d9d9d9;
+  border: 5px solid transparent;
+  transition: all 0.3s ease;
+}
+#dot-1:checked ~ .category label .one,
+#dot-2:checked ~ .category label .two,
+#dot-3:checked ~ .category label .three {
+  background: #9b59b6;
+  border-color: #d9d9d9;
+}
+    </style>
+</head>
+<body>
+    <section class="navsec">
+        <div class="logo">
+            <h1>Advertising App</h1>
+        </div>
+        <nav class="navbar">
+            <a href="/users">Home</a>
+            <a href="/login">Login</a>
+            <a href="/register">Register</a>
+            <a href="/sell">Sell</a>
+            <a href="#">Contact Us</a>
+        </nav>
+    </section>
